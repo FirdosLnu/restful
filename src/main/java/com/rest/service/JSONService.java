@@ -25,7 +25,7 @@ public class JSONService {
 	public Response processStates(StatesRequest statesReq) {
 
 		List<State> result = statesReq.getStates().stream() 		
-				.filter(x -> (x.getPopulation() < 500000 || !x.getName().startsWith("A")))
+				.filter(x -> (x.getPopulation() < 500000 || x.getName().startsWith("A")))
 				.collect(Collectors.toList());	
 		
 		Collections.sort(result);
