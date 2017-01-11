@@ -1,6 +1,5 @@
 package com.rest.service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +24,8 @@ public class JSONService {
 	public Response processStates(StatesRequest statesReq) {
 
 		List<State> result = statesReq.getStates().stream() 		
-				.filter(x -> (x.getPopulation() < 500000 || x.getName().startsWith("A")))
-				.collect(Collectors.toList());	
+				.filter(x -> (x.getPopulation() < 500000 && !x.getName().startsWith("A")))
+				.collect(Collectors.toList());
 		
 		Collections.sort(result);
 		
